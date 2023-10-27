@@ -79,4 +79,16 @@ Prompt: Can you please elaborate on the functionality of kallisto? As in, certai
     - If unsure about any command, use 'kallisto help' to see list of available commands and options
     - Read Kallisto documentation to gain deeper understanding
 
+Prompt: What is a FASTA file?
 
+- Text-based format for representing nucleotide sequences (DNA, RNA) or peptide sequences (proteins)
+- FASTA originates from FASTA software, one of the first tools designed for sequence alignment
+- Consists of 1 of more sequence entires
+    - Each entry starts with single line description, followed by lines of sequence data
+    - Description line distinguished from sequence data by '>' symbol at beginning
+    - Customary for description line to contain identifier for sequence, as well as additional information
+- FASTA files can be used to store:
+    - Genomic DNA sequences
+    - mRNA sequences
+    - Protein sequences
+    - Any other kind of sequence data
