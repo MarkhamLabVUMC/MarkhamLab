@@ -20,7 +20,7 @@ The most straightforward way is to first download the Windows Subsystem for Linu
 5. Extract the Downloaded Archive
     - Type 'tar -xzvf kallisto_linux-v0.46.1.tar.gz' in the PowerShell/Windows Command Prompt and hit enter on your keyboard
 6. Move Kallisto to your Path
-    -After extraction, the Kallisto binary will be inside the extracted folder
+    - After extraction, the Kallisto binary will be inside the extracted folder
     - For ease of use, move this binary to a location in your system's PATH
     - Common practice is to move it to '/usr/local/bin'
     - Type 'sudo mv kallisto_linux-v0.46.1/kallisto /usr/local/bin' in the PowerShell/Windows Command Prompt and hit enter on your keyboard
