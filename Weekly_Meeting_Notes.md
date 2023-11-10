@@ -73,3 +73,21 @@
 
 **November 3, 2023**
 - No meeting as data is currently being transferred to external hard drive
+
+**November 10, 2023**
+- Data
+    - fastq file format
+    - R1 and R2, 2 directions for each sample
+    - Compressed, hence fastq.gz
+    - Used illumina sequencing technology
+        - Paired-end run
+        - Novaseq 6000 machine was used to do sequencing
+    - Another 15 files
+- Summary excel sheet gives more information
+    - Total Yield
+    - Q30: Measure of quality
+- Next Steps:
+    - Look into what FASTQ files are
+    - Try to pseudoalign 1 sample & map them to list of genes and list of counts for each gene
+        - R1 & R2
+    - Having genes as rows, columns representing samples 1-30
