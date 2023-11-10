@@ -58,8 +58,18 @@
     - Memory
     - Align these 1 by 1, computationally intense, require way more memory
     - Use package: kallisto 
-- Next Step: Look through documentation of kallisto
+- Next Steps: 
+    - Look through documentation of kallisto
     - Need to set up private GitHub
         - Find out how much data can be uploaded
 
+**October 27, 2023**
+- Showed Dr. Markham GitHub Repo and tutorials created for kallisto
+- Next Steps: 
+    - Look at 'sleuth' package in R
+    - Move raw data onto external hard drive for access
+    - Experiment importing & reading in data to Kallisto
+        - Follow manual to do alignments & mapping
 
+**November 3, 2023**
+- No meeting as data is currently being transferred to external hard drive
