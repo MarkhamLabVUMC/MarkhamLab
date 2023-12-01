@@ -91,3 +91,12 @@
     - Try to pseudoalign 1 sample & map them to list of genes and list of counts for each gene
         - R1 & R2
     - Having genes as rows, columns representing samples 1-30
+
+**November 17, 2023**
+- No meeting, continue working on pseudoalignment
+
+**November 24, 2023**
+- No meeting, Thanksgiving break
+
+**December 1, 2023**
+- 
