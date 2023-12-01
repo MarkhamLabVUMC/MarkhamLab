@@ -1,7 +1,9 @@
 # External Hard Drive Guidelines
+
 This provides key points to implement when working with the drive (Windows) to ensure everything goes smooth.
 
 **Assigning a Letter**
+
 Sometimes, a letter is not assigned to the external hard drive, so it won't show up in the File Explorer. You need to manually assign a letter by following these steps:
 
 1. Right-click on the start button and select "Disk Management"
@@ -10,6 +12,7 @@ Sometimes, a letter is not assigned to the external hard drive, so it won't show
 4. Assign a drive letter that is not in use (Highly recommend to use 'E' as all code assumes that is the letter assigned to the drive)
 
 **Setup/Mounting**
+
 Since the data is on external hard drive, you have to mount it in wsl to be able to use it. Follow these steps:
 
 1. Open WSL
@@ -27,6 +30,7 @@ Since the data is on external hard drive, you have to mount it in wsl to be able
 *Note this is a one time item to do for your machine.
 
 **Ejecting**
+
 Ejecting the hard drive safely is crucial so the files do not go corrupt. You cannot simply physically remove the USB connection until you eject it by clicking on the USB icon on the bottom right corner. However, this method doesn't always work. So, here is what you can do:
 
 1. Open Command Prompt as an administrator
