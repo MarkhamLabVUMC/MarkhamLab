@@ -99,4 +99,18 @@
 - No meeting, Thanksgiving break
 
 **December 1, 2023**
-- 
+- Use est_counts, not tpm
+- Normalize, transform data
+- Get rest of samples on hard drive
+- Next Steps:
+    - After getting dataframe, take them & make comparisons across different samples
+    - Group some samples together based on how they were treated experimentally
+    - Statistical testing to compare genes across these groups
+    - 0's in data is significant, leave it as is (Sparse matrices)
+    - Programs that we will work with can handle these 0's (scanpy, based off of numpy and pandas)
+    - Dataframe needs to be filtered, as some genes are 0 for some samples but not 0 for others, and then some samples that have 0 for all of them
+    - Python packages for filtering RNA-Seq data
+
+**Winter Break**
+- Use new indexing
+- Continue project with new index 
