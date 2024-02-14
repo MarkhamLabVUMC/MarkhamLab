@@ -114,3 +114,21 @@
 **Winter Break**
 - Use new indexing
 - Continue project with new index 
+
+**January 8 - February 5, 2024**
+- Quantified samples 1 - 18, 20 - 30 with new index
+
+**February 7, 2024**
+- Troubleshot quantification of sample 19
+
+**February 9, 2024**
+- Ensured all samples produced correct output
+- Next Steps:
+    - Need to start analysis of differently expressed genes (go from kallisto to counts matrix)
+    - Generate counts matrix (Trinity via R or find a way in Python)
+    - Produce a scatterplot of log2 fold changes against the mean normalized counts for all genes
+    - Use PyDESeq2 for statistical analysis
+    - Take statistically analyzed data and generate plots (using packages like seaborn or matplotlib)
+
+**February 15, 2024**
+- 
