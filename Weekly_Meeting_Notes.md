@@ -131,4 +131,21 @@
     - Take statistically analyzed data and generate plots (using packages like seaborn or matplotlib)
 
 **February 15, 2024**
+- Discussed Trinity was not working to generate counts matrix
+- Showed alternate counts matrix, was not desired output
+- Next Steps:
+    - Delete every other target_id column from alternate counts matrix as they are identical (only need 1 in total)
+    - Need to change target_id to names of genes using names from ensemble database
+    - Try tximport package for counts matrix
+
+**February 23, 2024**
+- Showed new counts matrix that was a result of tximport (in R)
+- Made minor tweaks to get final counts matrix in .csv
+- Next Steps:
+    - Use counts matrix as input to finish rpub tutorial
+    - Switch to R for analysis and do PyDESeq2 tutorial
+
+**March 1, 2024**
 - 
+
+
