@@ -1,15 +1,12 @@
 ---
 title: "DESeq2 Analysis"
 author: "Ananya Nimbalkar"
-# date: '`r Sys.Date()`'
+date: '`r Sys.Date()`'
 output:
-  html_document:
-    code_folding: hide
-    #Table of Content
-    toc: yes
-    number_sections: yes
+  github_document:
+    toc: true
     toc_depth: 3
-    toc_float: yes
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -61,7 +58,7 @@ library(readr)  # for read_csv
 
 ```{r}
 # Load counts matrix
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:\\Analysis\\counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 
@@ -70,7 +67,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:\\Analysis\\10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
