@@ -5,7 +5,7 @@ BiocManager::install("rtracklayer")
 
 library(rtracklayer)
 
-gtf_path <- "D:\kallisto_Homo_sapiens\Homo_sapiens.GRCh38.111.gtf.gz"
+gtf_path <- "D:\\kallisto_Homo_sapiens\\Homo_sapiens.GRCh38.111.gtf.gz"
 
 gtf <- rtracklayer::import(gtf_path)
 
@@ -59,8 +59,8 @@ counts_matrix <- round(counts_matrix, 0)
 str(counts_matrix)
 
 # Define the file names for the .matrix and .csv files
-matrix_file <- "D:\\Analysis\\counts_matrix.matrix"
-csv_file <- "D:\\Analysis\\counts_matrix.csv"
+matrix_file <- "D:\\Analysis\\counts_matrix1.matrix"
+csv_file <- "D:\\Analysis\\counts_matrix1.csv"
 
 # Save as .matrix (plain text format)
 write.table(counts_matrix, file = matrix_file, sep = "\t", quote = FALSE, row.names = TRUE, col.names = NA)
