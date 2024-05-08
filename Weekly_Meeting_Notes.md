@@ -143,9 +143,58 @@
 - Made minor tweaks to get final counts matrix in .csv
 - Next Steps:
     - Use counts matrix as input to finish rpub tutorial
-    - Switch to R for analysis and do PyDESeq2 tutorial
+    - Switch to R for analysis and do DESeq2 tutorial
 
 **March 1, 2024**
-- 
+- Working on DESeq2 tutorial
+- Next Steps:
+    - Finish DESeq2 tutorial
 
+**March 22, 2024**
+- Showed progress on DESeq2 tutorial
+    - Heatmaps
+- Next Steps:
+    - Plot a histogram, where the x-axis is the counts (0 - 1000), y-axis is # of genes
+        - Plot all conditions in 1 plot
+    - Figure out how to get row names visible on heatmap
+    - Use 'Condition' and 'Cell' when comparing 2 variables in DESeq2 analysis
+    - Create PCA plot
 
+**March 29, 2024**
+- Accomplished all previous tasks that were requested
+- Made more progress on DESeq2 analysis
+- Clarified what parts of the analysis are not necessary
+- Next Steps:
+    - Create a heatmap of the 20 most differentially (regulated) expressed genees
+    - Modify the PCA plot so that the shape of the points vary for the Cell type
+    - Produce presentation worthy (informative) plots for Dr. Markham's talk
+
+**April 5, 2024**
+- Discussed possibility of continuing project next semester as a capstone
+    - Showed document that needs to be filled out
+- Next Steps:
+    - Fill out capstone document
+    - Continue to work on DESeq2 analysis
+
+**April 12, 2024**
+- Finished coding portion of DESeq2 analysis
+- Showed capstone document
+- Next Steps:
+    - Render DESeq2 analysis into .rmd so it is easier to follow along
+    - Try creating volcano plots
+    - Send capstone document for dean's approval
+
+**April 19, 2024**
+- Wrapped up .rmd of DESeq2 analysis
+- Showed various volcano plots produced by several different packages
+- Next Steps:
+    - Push everything to GitHub
+    - Think about how to start capstone project
+
+**April 23, 2024**
+- Handed over external hard drive
+
+**Summer Break**
+- Cleaned up GitHub so summer intern can easily follow along the created pipeline
+- Brainstormed next steps for capstone
+    - Rough implementation, including what tools to use
