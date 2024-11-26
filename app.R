@@ -1,6 +1,8 @@
 # This script creates the Markham Lab DESeq Dashboard. It has:
 # Chatbot to fetch information about genes
 # Various Plots with descriptions to analyze results from DESeq2 Analysis
+# Make sure you have the 'www' folder that contains all the plots for this dashboard
+# 'www' must be in same directory as app.R
 
 # Load necessary libraries
 library(shiny)
