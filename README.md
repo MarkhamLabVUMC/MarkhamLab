@@ -1,6 +1,8 @@
 # 🌟 MarkhamLab Repository
 Welcome to the **MarkhamLab** repository! This project involves the comprehensive analysis of a high-dimensional transcriptomic dataset. From pseudoaligning RNA-Seq reads to building an interactive dashboard with gene-level insights, this repository documents every step of the process.
 
+Author: Ananya Nimbalkar
+
 ---
 
 ## 📂 Contents
