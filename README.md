@@ -1,29 +1,84 @@
-# MarkhamLab
-A repo that contains exploratory data analysis based on a high-dimensional transcriptomic dataset.
+# 🌟 MarkhamLab Repository
+Welcome to the **MarkhamLab** repository! This project involves the comprehensive analysis of a high-dimensional transcriptomic dataset. From pseudoaligning RNA-Seq reads to building an interactive dashboard with gene-level insights, this repository documents every step of the process.
 
-## Contents
-*Note it is recommended to go through these files in order.
+---
 
-### main Branch
+## 📂 Contents
+Here’s a breakdown of the key components in this repository. **It is recommended to go through these files in order.**
 
-**Weekly_Meeting_Notes.md:** Key points discussed during weekly meetings and the work to be done for the following week.
+### 🗓 **Weekly_Meeting_Notes.md**
+- Summarizes the key points discussed during weekly meetings.
+- Outlines tasks and deliverables for the following week, keeping the project on track.
 
-### kallisto_guide Branch
+### 🧬 **Kallisto_Notes.md**
+- Provides a high-level overview of Kallisto, including its purpose and input requirements.
+- Useful for beginners to understand how pseudoalignment works.
 
-**Kallisto_Notes.md:** A high level overview of what the program is and the input it takes.
+### 🛠 **Kallisto_Installation.md**
+- Step-by-step instructions for installing Kallisto on your local device.
+- Ensures a smooth setup for first-time users.
 
-**Kallisto_Installation.md:** A step-by-step tutorial on how to install Kallisto on your device.
+### 📓 **Coding_Kallisto.ipynb**
+- A Jupyter Notebook showcasing how to run Kallisto using Python and R.
+- Includes detailed explanations of key commands and use cases.
 
-**Coding_Kallisto.ipynb:** A step-by-step tutorial on how to run Kallisto in Python and R, as well as descriptions of key commands.
+### 💾 **Data_Setup.md**
+- Instructions on properly mounting and ejecting the external hard drive within the WSL environment.
+- Covers system-specific guidelines to handle dataset storage.
 
-### data_transformation Branch
+### 🎯 **Pseudoalign_Samples.ipynb**
+- A Jupyter Notebook demonstrating how to pseudoalign RNA-Seq samples and map them to a list of genes using Kallisto.
+- Produces the data necessary for downstream analyses.
 
-**Data_Setup.md:** Guidelines on how to properly mount and eject the external hard drive in the WSL environment and overall system.
+### 📊 **Counts_Matrix_tximport.R**
+- An R script that processes pseudoaligned data to create a counts matrix for the samples.
+- Uses the `tximport` package for importing and summarizing transcript-level data.
 
-**Pseudoalign_Samples.ipynb:** A Jupyter Notebook that pseudoaligns the samples and maps them to a list of genes using Kallisto.
+### 🔬 **DESeq2_Analysis.md**
+- A comprehensive tutorial on running the DESeq2 pipeline.
+- Explains every step, from pre-filtering data to performing differential expression analysis.
 
-**Counts_Matrix_tximport.R:** A R file that produces the counts matrix for the samples.
+### 🌋 **Volcano_Plots.R**
+- An R script for generating volcano plots based on DESeq2 results.
+- Highlights significant genes, helping identify biological insights.
 
-**DESeq2_Analysis.md:** A step-by-step tutorial on how to do the DESeq2 tutorial.
+### 🔍 **Gene_Scraping.ipynb**
+- A Python notebook for web scraping summaries and descriptions of human genes from the NCBI database.
+- Prepares gene metadata for integration into downstream visualizations.
 
-**Volcano_Plots.R:** A R script that produces volcano plots with the DESeq pipeline.
+### 📊 **app.R**
+- An R script powering the **Markham Lab DESeq Dashboard**.
+- Features:
+  - An **interactive chatbot** that allows users to query gene summaries and descriptions.
+  - **Dynamic visualizations**, including volcano plots, MA plots, PCA plots, and heatmaps, for exploring transcriptomic data.
+  - User-friendly filters to explore genes and conditions.
+
+---
+
+## 🛠 Technologies Used
+- **Kallisto**: For pseudoalignment and transcript quantification.
+- **R and RStudio**: For statistical analysis (DESeq2) and data visualization.
+- **Python and Jupyter Notebooks**: For data preprocessing, scraping, and exploratory analysis.
+- **Shiny**: To create an interactive dashboard for gene-level insights.
+
+---
+
+## 🌟 Highlights
+- **Interactive Dashboard**: The `app.R` script brings all analyses together into a centralized platform, enabling dynamic exploration of results.
+- **End-to-End Workflow**: From raw RNA-Seq data to a polished dashboard, this repository covers all stages of data analysis.
+- **Custom Gene Insights**: Web scraping ensures detailed descriptions and summaries for all analyzed genes.
+
+---
+
+## 🧑‍💻 Getting Started
+1. Clone the repository:
+   git clone https://github.com/MarkhamLabVUMC/MarkhamLab.git
+2. Follow the installation instructions in the Kallisto_Installation.md and Data_Setup.md files.
+3. Explore the dataset by running the notebooks and scripts in the suggested order.
+
+---
+
+## 🚀 Future Enhancements
+- 🧬 Add pathway analysis and gene set enrichment functionalities to the dashboard.
+- 🎨 Enhance visualizations with additional customization options (e.g., color themes, annotations).
+- 🔍 Expand scraping functionality to include pathway or functional data.
