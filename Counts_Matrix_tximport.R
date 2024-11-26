@@ -5,7 +5,7 @@ BiocManager::install("rtracklayer")
 
 library(rtracklayer)
 
-gtf_path <- "D:\\kallisto_Homo_sapiens\\Homo_sapiens.GRCh38.111.gtf.gz"
+gtf_path <- "D:\\MarkhamLab\\kallisto_Homo_sapiens\\Homo_sapiens.GRCh38.111.gtf.gz"
 
 gtf <- rtracklayer::import(gtf_path)
 
@@ -36,7 +36,7 @@ BiocManager::install("tximport")
 library(tximport)
 
 # Set the base directory where all your "kallisto" directories are located
-base_dir <- "D:\\kallisto_Homo_sapiens"
+base_dir <- "D:\\MarkhamLab\\kallisto_Homo_sapiens"
 
 # Create the vector of file paths for your kallisto abundance.tsv files
 # Assuming that the files are compressed as .tsv.gz
@@ -59,8 +59,8 @@ counts_matrix <- round(counts_matrix, 0)
 str(counts_matrix)
 
 # Define the file names for the .matrix and .csv files
-matrix_file <- "D:\\Analysis\\counts_matrix1.matrix"
-csv_file <- "D:\\Analysis\\counts_matrix1.csv"
+matrix_file <- "D:\\MarkhamLab\\Analysis\\counts_matrix1.matrix"
+csv_file <- "D:\\MarkhamLab\\Analysis\\counts_matrix1.csv"
 
 # Save as .matrix (plain text format)
 write.table(counts_matrix, file = matrix_file, sep = "\t", quote = FALSE, row.names = TRUE, col.names = NA)

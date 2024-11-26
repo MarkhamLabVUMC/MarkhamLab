@@ -103,7 +103,7 @@ library(readr)  # for read_csv
 
 ``` r
 # Load counts matrix
-counts_file_path <- "D:\\Analysis\\counts_matrix.csv"
+counts_file_path <- "D:\\MarkhamLab\\Analysis\\counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 
@@ -112,7 +112,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:\\Analysis\\10051_NM_metadata.csv"
+metadata_file_path <- "D:\\MarkhamLab\\Analysis\\10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
@@ -316,7 +316,7 @@ graph is saved as ‘average_gene_counts_by_condition.png’.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\average_gene_counts_by_condition.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\average_gene_counts_by_condition.png", width = 800, height = 600)
 
 # Plot
 ggplot(average_counts_per_condition, aes(x = Gene, y = AverageCount, color = Condition)) +
@@ -334,7 +334,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\average_gene_counts_by_condition.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\average_gene_counts_by_condition.png")
 ```
 
 ![](D:\Analysis\average_gene_counts_by_condition.png)<!-- -->
@@ -398,7 +398,7 @@ res
 
 ``` r
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\results_table.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table.csv")
 ```
 
 ## 7.1 Log Fold Change
@@ -476,7 +476,7 @@ resLFC
 
 ``` r
 write.csv(as.data.frame(resLFC), 
-          file="D:\\Analysis\\results_table_LFC.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table_LFC.csv")
 ```
 
 ## 7.2 Speed-up and Parallelization Thoughts
@@ -535,7 +535,7 @@ summary(res)
 
 ``` r
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\summarized_results.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results.csv")
 ```
 
 The number of genes that have an adjusted p-value less than 0.1 can be
@@ -572,7 +572,7 @@ summary(res05)
 
 ``` r
 write.csv(as.data.frame(res05), 
-          file="D:\\Analysis\\summarized_results_pvalue_cutoff.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results_pvalue_cutoff.csv")
 ```
 
 Lastly, we calculate how many genes meet the criterion of having an
@@ -624,7 +624,7 @@ summary(resIHW)
 
 ``` r
 write.csv(as.data.frame(resIHW), 
-          file="D:\\Analysis\\summarized_results_IHW.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results_IHW.csv")
 ```
 
 We can calculate the number of genes with an adjusted p-value below 0.1,
@@ -673,7 +673,7 @@ fall out of the window are plotted as open triangles, facing up or down.
 #over the mean of normalized counts for all the samples 
 # in the DESeqDataSet
 # Open a PNG device
-png("D:\\Analysis\\MAplot.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\MAplot.png", width = 800, height = 600)
 
 plotMA(res, ylim=c(-2,2))
 
@@ -685,7 +685,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\MAplot.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\MAplot.png")
 ```
 
 ![](D:\Analysis\MAplot.png)<!-- -->
@@ -700,7 +700,7 @@ how shrinkage affects the distribution of fold changes.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\MAplot_Shrunken_log2.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\MAplot_Shrunken_log2.png", width = 800, height = 600)
 
 # MA-plot for the shrunken log2 fold changes
 plotMA(resLFC, ylim=c(-2,2))
@@ -713,7 +713,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\MAplot_Shrunken_log2.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\MAplot_Shrunken_log2.png")
 ```
 
 ![](D:\Analysis\MAplot_Shrunken_log2.png)<!-- -->
@@ -770,7 +770,7 @@ shrinkage method on the stability and distribution of LFC estimates.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\alternative_shrinkage_MAplot.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\alternative_shrinkage_MAplot.png", width = 800, height = 600)
 
 par(mfrow=c(1,3), mar=c(4,4,2,1))
 xlim <- c(1,1e5); ylim <- c(-3,3)
@@ -789,7 +789,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\alternative_shrinkage_MAplot.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\alternative_shrinkage_MAplot.png")
 ```
 
 ![](D:\Analysis\alternative_shrinkage_MAplot.png)<!-- -->
@@ -813,7 +813,7 @@ count data across diferent conditions specified in the ‘dds’ object.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\PlotCounts.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\PlotCounts.png", width = 800, height = 600)
 
 plotCounts(dds, gene=which.min(res$padj), intgroup="Condition")
 
@@ -825,7 +825,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\PlotCounts.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\PlotCounts.png")
 ```
 
 ![](D:\Analysis\PlotCounts.png)<!-- -->
@@ -835,7 +835,7 @@ The same plot can be produced but with more customized settings, using
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\PlotCountsCustomized.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\PlotCountsCustomized.png", width = 800, height = 600)
 
 d <- plotCounts(dds, gene=which.min(res$padj), intgroup="Condition", 
                 returnData=TRUE)
@@ -852,7 +852,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\PlotCountsCustomized.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\PlotCountsCustomized.png")
 ```
 
 ![](D:\Analysis\PlotCountsCustomized.png)<!-- -->
@@ -879,7 +879,7 @@ mcols(res)$description
 
 ``` r
 write.csv(as.data.frame(resOrdered), 
-          file="D:\\Analysis\\condition_treated_results.csv")
+          file="D:\\MarkhamLab\\Analysis\\condition_treated_results.csv")
 
 resSig <- subset(resOrdered, padj < 0.1)
 resSig
@@ -897,7 +897,7 @@ resSig
 
 ``` r
 write.csv(as.data.frame(resSig), 
-          file="D:\\Analysis\\condition_treated_results_pvalue.csv")
+          file="D:\\MarkhamLab\\Analysis\\condition_treated_results_pvalue.csv")
 ```
 
 # 9 Data Transformations & Visualizations
@@ -951,7 +951,7 @@ head(assay(vsd), 3)
 
 ``` r
 write.csv(as.data.frame(assay(vsd)), 
-          file="D:\\Analysis\\assay_vsd.csv")
+          file="D:\\MarkhamLab\\Analysis\\assay_vsd.csv")
 ```
 
 ## 9.2 Transformed Standard Deviation Plots
@@ -1000,7 +1000,7 @@ pipeline.
 library("vsn")
 
 # Open a PNG device
-png("D:\\Analysis\\MeanSdPlot_ntd.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\MeanSdPlot_ntd.png", width = 800, height = 600)
 
 meanSdPlot(assay(ntd))
 
@@ -1012,14 +1012,14 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\MeanSdPlot_ntd.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\MeanSdPlot_ntd.png")
 ```
 
 ![](D:\Analysis\MeanSdPlot_ntd.png)<!-- -->
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\MeanSdPlot_vsd.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\MeanSdPlot_vsd.png", width = 800, height = 600)
 
 meanSdPlot(assay(vsd))
 
@@ -1031,14 +1031,14 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\MeanSdPlot_vsd.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\MeanSdPlot_vsd.png")
 ```
 
 ![](D:\Analysis\MeanSdPlot_vsd.png)<!-- -->
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\MeanSdPlot_rld.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\MeanSdPlot_rld.png", width = 800, height = 600)
 
 meanSdPlot(assay(rld))
 
@@ -1050,7 +1050,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\MeanSdPlot_rld.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\MeanSdPlot_rld.png")
 ```
 
 ![](D:\Analysis\MeanSdPlot_rld.png)<!-- -->
@@ -1098,7 +1098,7 @@ transformed data. The rows and columns are not clustered.
 library("pheatmap")
 
 # Open a PNG device
-png("D:\\Analysis\\Heatmap.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\Heatmap.png", width = 800, height = 600)
 
 
 pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
@@ -1112,7 +1112,7 @@ dev.off()
     ##   3
 
 ``` r
-# knitr::include_graphics("D:\\Analysis\\Heatmap.png")
+# knitr::include_graphics("D:\\MarkhamLab\\Analysis\\Heatmap.png")
 ```
 
 ![](DESeq2_Analysis_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
@@ -1170,7 +1170,7 @@ print(df_top_genes)
 
 ``` r
 write.csv(as.data.frame(df_top_genes), 
-          file="D:\\Analysis\\heatmap_findings.csv")
+          file="D:\\MarkhamLab\\Analysis\\heatmap_findings.csv")
 ```
 
 Similarly, we generate the heatmap with the annotated gene names.
@@ -1191,7 +1191,7 @@ rownames(normalized_counts_top_genes) <- gene_names
 df <- as.data.frame(colData(dds)[, c("Condition", "Round")])
 
 # Open a PNG device
-png("D:\\Analysis\\Heatmap_Highest_Genes.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\Heatmap_Highest_Genes.png", width = 800, height = 600)
 
 # Generate the heatmap with gene names displayed
 pheatmap(normalized_counts_top_genes, cluster_rows=FALSE, show_rownames=TRUE,
@@ -1205,7 +1205,7 @@ dev.off()
     ##   3
 
 ``` r
-# knitr::include_graphics("D:\\Analysis\\Heatmap_Highest_Genes.png")
+# knitr::include_graphics("D:\\MarkhamLab\\Analysis\\Heatmap_Highest_Genes.png")
 ```
 
 ![](DESeq2_Analysis_files/figure-gfm/unnamed-chunk-47-1.png)<!-- -->
@@ -1267,7 +1267,7 @@ print(head(normalized_counts_df))
 
 ``` r
 write.csv(as.data.frame(normalized_counts_df), 
-          file="D:\\Analysis\\heatmap_findings_per_sample.csv")
+          file="D:\\MarkhamLab\\Analysis\\heatmap_findings_per_sample.csv")
 ```
 
 If you prefer to have the values directly on the heatmap for each cell,
@@ -1284,7 +1284,7 @@ data_long <- as.data.frame(normalized_counts_top_genes) %>%
   tidyr::pivot_longer(-Gene, names_to = "Sample", values_to = "Value")
 
 # Open a PNG device
-png("D:\\Analysis\\Heatmap_Highest_Genes_Counts.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\Heatmap_Highest_Genes_Counts.png", width = 800, height = 600)
 
 # Plot heatmap with ggplot2
 ggplot(data_long, aes(x = Sample, y = Gene, fill = Value)) +
@@ -1303,7 +1303,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\Heatmap_Highest_Genes_Counts.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\Heatmap_Highest_Genes_Counts.png")
 ```
 
 ![](D:\Analysis\Heatmap_Highest_Genes_Counts.png)<!-- -->
@@ -1321,7 +1321,7 @@ effects. Here, we take a look of Condition and Cells.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\PCA_Plot_Samples.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\PCA_Plot_Samples.png", width = 800, height = 600)
 
 # PCA Plot
 # Saved as PCA_Plot_Samples
@@ -1346,7 +1346,7 @@ plotPCA(vsd, intgroup=c("Condition", "Cells"))
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\PCA_Plot_Samples_Customized.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\PCA_Plot_Samples_Customized.png", width = 800, height = 600)
 
 pcaData <- plotPCA(vsd, intgroup=c("Condition", "Cells"), returnData=TRUE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
@@ -1364,7 +1364,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\PCA_Plot_Samples_Customized.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\PCA_Plot_Samples_Customized.png")
 ```
 
 ![](D:\Analysis\PCA_Plot_Samples_Customized.png)<!-- -->
@@ -1492,7 +1492,7 @@ dds <- DESeq(dds, test="LRT", reduced=~1)
 res <- results(dds)
 
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\results_table_LRT.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table_LRT.csv")
 ```
 
 # 11 Additional Plots
@@ -1516,7 +1516,7 @@ easier to discern on plots.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\Cooks_Boxplot.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\Cooks_Boxplot.png", width = 800, height = 600)
 
 # Boxplot
 # y-axis is log-transformed Cook's distances of the RNA-seq count data.
@@ -1531,7 +1531,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\Cooks_Boxplot.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\Cooks_Boxplot.png")
 ```
 
 ![](D:\Analysis\Cooks_Boxplot.png)<!-- -->
@@ -1544,7 +1544,7 @@ seen here.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\Dispersion_Plot.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\Dispersion_Plot.png", width = 800, height = 600)
 
 # Dispersion plot
 plotDispEsts(dds)
@@ -1557,7 +1557,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\Dispersion_Plot.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\Dispersion_Plot.png")
 ```
 
 ![](D:\Analysis\Dispersion_Plot.png)<!-- -->
@@ -1582,7 +1582,7 @@ that is considered significant.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\altHypothesis_MAplots.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\altHypothesis_MAplots.png", width = 800, height = 600)
 
 par(mfrow=c(2,2),mar=c(2,2,1,1))
 ylim <- c(-2.5,2.5)
@@ -1604,7 +1604,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\altHypothesis_MAplots.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\altHypothesis_MAplots.png")
 ```
 
 ![](D:\Analysis\altHypothesis_MAplots.png)<!-- -->
@@ -1637,7 +1637,7 @@ increments of 0.02.
 
 ``` r
 # Open a PNG device
-png("D:\\Analysis\\pvalue_histogram.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\pvalue_histogram.png", width = 800, height = 600)
 
 h1 <- hist(res$pvalue[!use], breaks=0:50/50, plot=FALSE)
 h2 <- hist(res$pvalue[use], breaks=0:50/50, plot=FALSE)
@@ -1656,7 +1656,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\pvalue_histogram.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\pvalue_histogram.png")
 ```
 
 ![](D:\Analysis\pvalue_histogram.png)<!-- -->
@@ -1682,7 +1682,7 @@ library("DESeq2")
 library(readr)  # for read_csv
 
 # Load counts matrix
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:/MarkhamLab/Analysis/counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 # Create copy of counts matrix with gene names
@@ -1690,7 +1690,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:/MarkhamLab/Analysis/10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
@@ -1797,7 +1797,7 @@ if (!requireNamespace("EnhancedVolcano", quietly = TRUE)) {
 library(EnhancedVolcano)
 
 # Create the volcano plot using EnhancedVolcano
-png("D:\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -1818,7 +1818,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\volcano_plot_unlabeled.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\volcano_plot_unlabeled.png")
 ```
 
 ![](D:\Analysis\volcano_plot_unlabeled.png)<!-- -->
@@ -1830,7 +1830,7 @@ below -2.
 ``` r
 # 2. Labeled volcano plot using EnhancedVolcano
 
-png("D:\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -1850,7 +1850,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\volcano_plot_labeled.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\volcano_plot_labeled.png")
 ```
 
 ![](D:\Analysis\volcano_plot_labeled.png)<!-- -->
@@ -1866,7 +1866,7 @@ if (!requireNamespace("ggplot2", quietly = TRUE))
   install.packages("ggplot2")
 library(ggplot2)
 
-png("D:\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
 # Prepare data for plotting
 volcano_data <- as.data.frame(res)
 volcano_data$gene <- rownames(volcano_data)
@@ -1885,7 +1885,7 @@ dev.off()
     ##   2
 
 ``` r
-knitr::include_graphics("D:\\Analysis\\volcano_plot_ggplot.png")
+knitr::include_graphics("D:\\MarkhamLab\\Analysis\\volcano_plot_ggplot.png")
 ```
 
 ![](D:\Analysis\volcano_plot_ggplot.png)<!-- -->

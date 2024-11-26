@@ -8,7 +8,7 @@ library("DESeq2")
 library(readr)  # for read_csv
 
 # Load counts matrix
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:/MarkhamLab/Analysis/counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 # Create copy of counts matrix with gene names
@@ -16,7 +16,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:/MarkhamLab/Analysis/10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
@@ -80,7 +80,7 @@ if (!requireNamespace("EnhancedVolcano", quietly = TRUE)) {
 library(EnhancedVolcano)
 
 # Create the volcano plot using EnhancedVolcano
-png("D:\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -100,7 +100,7 @@ dev.off()
 
 # 2. Labeled volcano plot using EnhancedVolcano
 
-png("D:\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -124,7 +124,7 @@ if (!requireNamespace("ggplot2", quietly = TRUE))
   install.packages("ggplot2")
 library(ggplot2)
 
-png("D:\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
 # Prepare data for plotting
 volcano_data <- as.data.frame(res)
 volcano_data$gene <- rownames(volcano_data)

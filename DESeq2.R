@@ -13,7 +13,7 @@ library("DESeq2")
 library(readr)  # for read_csv
 
 # Load counts matrix
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:/MarkhamLab/Analysis/counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 # Create copy of counts matrix with gene names
@@ -21,7 +21,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:/MarkhamLab/Analysis/10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
@@ -103,7 +103,7 @@ for (condition in unique(metadata$Condition)) {
   average_counts_per_condition <- rbind(average_counts_per_condition, condition_data)
 }
 # Open a PNG device
-png("D:\\Analysis\\average_gene_counts_by_condition.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\average_gene_counts_by_condition.png", width = 800, height = 600)
 
 # Plot
 ggplot(average_counts_per_condition, aes(x = Gene, y = AverageCount, color = Condition)) +
@@ -128,7 +128,7 @@ res <- results(dds)
 res
 
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\results_table.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table.csv")
 
 # Install apeglm for log fold change below
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -148,7 +148,7 @@ resLFC <- lfcShrink(dds, coef=coefPosition, type="apeglm")
 resLFC
 
 write.csv(as.data.frame(resLFC), 
-          file="D:\\Analysis\\results_table_LFC.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table_LFC.csv")
 
 # 5. Speed-up and parallelization thoughts
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -165,7 +165,7 @@ resOrdered <- res[order(res$pvalue),]
 summary(res)
 
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\summarized_results.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results.csv")
 
 # Shows how many adjusted p-values were less than 0.1
 sum(res$padj < 0.1, na.rm=TRUE)
@@ -174,7 +174,7 @@ res05 <- results(dds, alpha=0.05)
 summary(res05)
 
 write.csv(as.data.frame(res05), 
-          file="D:\\Analysis\\summarized_results_pvalue_cutoff.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results_pvalue_cutoff.csv")
 
 sum(res05$padj < 0.05, na.rm=TRUE)
 
@@ -188,7 +188,7 @@ resIHW <- results(dds, filterFun=ihw)
 summary(resIHW)
 
 write.csv(as.data.frame(resIHW), 
-          file="D:\\Analysis\\summarized_results_IHW.csv")
+          file="D:\\MarkhamLab\\Analysis\\summarized_results_IHW.csv")
 
 sum(resIHW$padj < 0.1, na.rm=TRUE)
 metadata(resIHW)$ihwResult
@@ -235,13 +235,13 @@ ggplot(d, aes(x=Condition, y=count)) +
 mcols(res)$description
 
 write.csv(as.data.frame(resOrdered), 
-          file="D:\\Analysis\\condition_treated_results.csv")
+          file="D:\\MarkhamLab\\Analysis\\condition_treated_results.csv")
 
 resSig <- subset(resOrdered, padj < 0.1)
 resSig
 
 write.csv(as.data.frame(resSig), 
-          file="D:\\Analysis\\condition_treated_results_pvalue.csv")
+          file="D:\\MarkhamLab\\Analysis\\condition_treated_results_pvalue.csv")
 
 # Need Type in metadata
 #colData(dds)
@@ -258,7 +258,7 @@ rld <- rlog(dds, blind=FALSE)
 head(assay(vsd), 3)
 
 write.csv(as.data.frame(assay(vsd)), 
-          file="D:\\Analysis\\assay_vsd.csv")
+          file="D:\\MarkhamLab\\Analysis\\assay_vsd.csv")
 
 # Effects of Transformations on Variance
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -313,7 +313,7 @@ df_top_genes <- data.frame(Gene = top_genes, NormalizedCounts = top_counts)
 print(df_top_genes)
 
 write.csv(as.data.frame(df_top_genes), 
-          file="D:\\Analysis\\heatmap_findings.csv")
+          file="D:\\MarkhamLab\\Analysis\\heatmap_findings.csv")
 
 # Heatmap with gene names depicted
 library("pheatmap")
@@ -349,7 +349,7 @@ normalized_counts_df <- normalized_counts_df[,-1]
 print(normalized_counts_df)
 
 write.csv(as.data.frame(normalized_counts_df), 
-          file="D:\\Analysis\\heatmap_findings_per_sample.csv")
+          file="D:\\MarkhamLab\\Analysis\\heatmap_findings_per_sample.csv")
 
 
 # Heatmap with values on it
@@ -378,7 +378,7 @@ ggplot(data_long, aes(x = Sample, y = Gene, fill = Value)) +
 plotPCA(vsd, intgroup=c("Condition", "Cells"))
 
 # Open a PNG device
-png("D:\\Analysis\\PCA_Plot_Samples_Customized.png", width = 800, height = 600)
+png("D:\\MarkhamLab\\Analysis\\PCA_Plot_Samples_Customized.png", width = 800, height = 600)
 
 pcaData <- plotPCA(vsd, intgroup=c("Condition", "Cells"), returnData=TRUE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
@@ -420,7 +420,7 @@ dds <- DESeq(dds, test="LRT", reduced=~1)
 res <- results(dds)
 
 write.csv(as.data.frame(res), 
-          file="D:\\Analysis\\results_table_LRT.csv")
+          file="D:\\MarkhamLab\\Analysis\\results_table_LRT.csv")
 
 # Boxplot
 # y-axis is log-transformed Cook's distances of the RNA-seq count data.
@@ -461,11 +461,11 @@ library(DESeq2)
 library(readr)  # Optional, for read_csv function which is faster than read.csv
 
 # Load your counts data
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:/MarkhamLab/Analysis/counts_matrix.csv"
 counts <- read_csv(counts_file_path)
 
 # Load your metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:/MarkhamLab/Analysis/10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 
 # Ensure that 'metadata' DataFrame has the necessary columns and conditions set correctly
@@ -515,7 +515,7 @@ library("DESeq2")
 library(readr)  # for read_csv
 
 # Load counts matrix
-counts_file_path <- "D:/Analysis/counts_matrix.csv"
+counts_file_path <- "D:/MarkhamLab/Analysis/counts_matrix.csv"
 counts <- read_csv(counts_file_path, col_names = TRUE)
 rownames(counts) <- counts$...1 # Replace '...1' with the actual name of the gene ID column if necessary
 # Create copy of counts matrix with gene names
@@ -523,7 +523,7 @@ counts_with_gene_names <- counts
 counts <- counts[,-1] # Drop the gene ID column so that only numeric count data remains
 
 # Load metadata
-metadata_file_path <- "D:/Analysis/10051_NM_metadata.csv"
+metadata_file_path <- "D:/MarkhamLab/Analysis/10051_NM_metadata.csv"
 metadata <- read_csv(metadata_file_path)
 rownames(metadata) <- metadata$Sample
 metadata <- metadata[,-1] # Remove the 'Sample' column after setting it as row names
@@ -578,7 +578,7 @@ if (!requireNamespace("EnhancedVolcano", quietly = TRUE)) {
 library(EnhancedVolcano)
 
 # Create the volcano plot using EnhancedVolcano
-png("D:\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_unlabeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -596,7 +596,7 @@ dev.off()
 
 
 # Labeled volcano plot
-png("D:\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_labeled.png", width = 1200, height = 600)
 EnhancedVolcano(res,
                 lab = res$gene,
                 x = 'log2FoldChange',
@@ -620,7 +620,7 @@ if (!requireNamespace("ggplot2", quietly = TRUE))
   install.packages("ggplot2")
 library(ggplot2)
 
-png("D:\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
+png("D:\\MarkhamLab\\Analysis\\volcano_plot_ggplot.png", width = 1200, height = 600)
 # Prepare data for plotting
 volcano_data <- as.data.frame(res)
 volcano_data$gene <- rownames(volcano_data)
